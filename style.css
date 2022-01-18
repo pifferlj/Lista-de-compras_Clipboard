@@ -1,0 +1,331 @@
+@import url(https://fonts.googleapis.com/css?family=Gochi+Hand);
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+html,
+body {
+  background-color: #1de9a5;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.container .list-board {
+  position: absolute;
+  width: 64%;
+  height: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 15px;
+  background: #05b867;
+  box-shadow: 3px 3px 0 rgba(80, 20, 13, 0.3);
+}
+.container .list-board .paper {
+  font-family: 'Gochi Hand', 'Noto Sans TC';
+  position: absolute;
+  background: #f6f6f6;
+  width: 86%;
+  height: 80%;
+  left: 7%;
+  top: 5%;
+  box-shadow: 2px 2px 0 rgba(80, 20, 13, 0.3);
+}
+.container .list-board .paper .input-box {
+  position: absolute;
+  width: 66%;
+  height: 5%;
+  left: 16%;
+  top: 7%;
+  border-color: transparent;
+  background: #f3e7f0;
+  color: #111111;
+  font-family: 'Gochi Hand', 'Noto Sans TC';
+}
+.container .list-board .paper .input-box:focus {
+  outline: none;
+}
+.container .list-board .paper .list {
+  position: absolute;
+  width: 80%;
+  height: 70%;
+  left: 10%;
+  top: 18%;
+  transition: 0.3s;
+}
+.container .list-board .paper .list .list-ul {
+  width: 100%;
+  display: block;
+  list-style: none;
+}
+.container .clip {
+  position: absolute;
+  width: 34%;
+  height: 6.7%;
+  border-radius: 6px;
+  background: #dcdcdd;
+  left: 33%;
+  top: -0.5%;
+}
+.container .clip:before {
+  position: absolute;
+  content: '';
+  width: 70%;
+  height: 100%;
+  border-radius: 6px;
+  background: #dcdcdd;
+  top: -70%;
+  left: 15%;
+  z-index: -1;
+}
+.container .clip:after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  border: 14px solid black;
+  border-color: #50140d transparent transparent #50140d;
+  right: -28px;
+  bottom: 0px;
+  opacity: 0.3;
+}
+.container .clip .clip-gray {
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  background: #b4b5b4;
+  bottom: 0;
+  box-shadow: 0 1.5px 0.1px rgba(0, 0, 0, 0.35);
+}
+.container .clip .gray-line {
+  position: absolute;
+  width: 50%;
+  height: 7%;
+  left: 25%;
+  top: -50%;
+  border-radius: 4px;
+  background: #b5b4b4;
+  z-index: 2;
+}
+.container .clip .gray-line:before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background: #b4b5b5;
+  top: 250%;
+}
+.container .clip .gray-line:after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background: #b4b5b5;
+  top: 500%;
+}
+.container .note {
+  position: absolute;
+  width: 25%;
+  height: 5%;
+  top: 9%;
+  left: -8%;
+  background: rgba(17, 17, 16, 0.5);
+  transform: rotate(-8deg);
+}
+.container .note:before {
+  position: absolute;
+  content: '';
+  width: 25%;
+  height: 100%;
+  background: rgba(17, 17, 16, 0.5);
+  right: 0;
+  box-shadow: 0.5px 0.5px rgba(80, 20, 13, 0.2);
+}
+.container .note:after {
+  position: absolute;
+  content: '';
+  top: 20%;
+  left: 4%;
+}
+.container .pencil {
+  position: absolute;
+  width: 3%;
+  height: 35%;
+  top: 30%;
+  right: 6%;
+  background: #0a0a0a;
+  transform: rotate(-10deg);
+}
+.container .pencil .top {
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: -22.5px;
+  border-style: solid;
+  border-width: 8px 8px 15px 8px;
+  border-color: transparent transparent #e7f3e8 transparent;
+}
+.container .pencil .top:before {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  top: -5px;
+  left: -3.4px;
+  border-style: solid;
+  border-width: 3px 3px 6px 3px;
+  border-color: transparent transparent #0a0a0a transparent;
+}
+.container .pencil .bottom {
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  border-radius: 5px;
+  background: #d28070;
+  bottom: -10%;
+}
+.container .pencil .bottom:before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 40%;
+  background: #e5e3d1;
+}
+
+.toggle {
+  cursor: pointer;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  left: 10px;
+  border: 2.5px solid #0a0a0a;
+  transition: 0.3s;
+}
+.toggle i {
+  position: absolute;
+  font-size: 1em;
+  color: #dfa35a;
+  top: -4px;
+}
+
+.todo-text {
+  color: #0a0a0a;
+  font-size: 1.2em;
+  transition: 0.3s;
+}
+
+.todo-item,
+.done-item {
+  transition: 0.5s;
+  display: flex;
+  align-items: center;
+  height: 22px;
+}
+.todo-item:hover .delete-icon,
+.done-item:hover .delete-icon {
+  opacity: 1;
+}
+
+.delete-icon {
+  position: absolute;
+  right: 10px;
+  opacity: 0;
+  transition: 0.3s;
+}
+.delete-icon i {
+  position: absolute;
+  font-size: 1.3em;
+  color: #f30707;
+  right: 5px;
+  top: -7px;
+}
+
+@media screen and (max-width: 980px) {
+  .container {
+    width: 700px;
+    height: 700px;
+  }
+
+  .container .list-board {
+    width: 80%;
+  }
+
+  .container .list-board .paper {
+    width: 86%;
+    height: 80%;
+  }
+
+  .container .list-board .paper .input-box {
+    font-size: 150%;
+    width: 66%;
+    height: 10%;
+  }
+
+  .container .list-board .paper .list {
+    font-size: 150%;
+    width: 60%;
+    height: 60%;
+    left: 15%;
+    top: 23%;
+  }
+
+  .container .note {
+    width: 20%;
+  }
+
+  .container .pencil {
+    right: -30%;
+      
+  }
+
+  
+   
+@media screen and (max-width: 520px) {
+  .container {
+    width: 500px;
+    height: 500px;
+  }
+
+  .container .list-board {
+    width: 80%;
+  }
+
+  .container .list-board .paper {
+    width: 86%;
+    height: 80%;
+  }
+
+  .container .list-board .paper .input-box {
+    font-size: 150%;
+    width: 66%;
+    height: 10%;
+  }
+
+  .container .list-board .paper .list {
+    font-size: 150%;
+    width: 60%;
+    height: 60%;
+    left: 15%;
+    top: 23%;
+  }
+
+  .container .note {
+    width: 20%;
+  }
+
+  .container .pencil {
+    right: -10%;
+      
+  }
+}

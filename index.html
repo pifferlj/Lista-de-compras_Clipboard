@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lista de Tarefas_To do List_clipboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- partial:index.partial.html -->
+    <div class="container">
+      <div class="list-board">
+        <div id="app" class="paper">
+          <input
+            class="input-box"
+            type="text"
+            autofocus
+            v-model="newTodo"
+            v-on:keyup.enter="addTodo(newTodo)"
+          />
+          <div class="list">
+            <ul class="list-ul">
+              <li v-for="todo in todos" class="todo-item">
+                <span class="toggle" v-on:click="completedTodo(todo)"></span>
+                <span class="todo-text">{{todo.content}}</span>
+                <span class="delete-icon"
+                  ><a href="#" @click.prevent="removeTodo(todo)"
+                    ><i class="fa fa-trash-o fa-lg"></i></a
+                ></span>
+              </li>
+            </ul>
+            <ul class="list-ul">
+              <li v-for="todo_done in todos_done" class="done-item">
+                <span class="toggle" v-on:click="completedTodo(todo_done)"
+                  ><i class="fa fa-check" aria-hidden="true"></i
+                ></span>
+                <span
+                  class="todo-text"
+                  style="text-decoration: line-through; color: #ab8988"
+                  >{{todo_done.content}}</span
+                >
+                <a
+                  href="#"
+                  @click.prevent="removeTodo_done(todo_done)"
+                  class="delete-icon"
+                  ><i class="fa fa-trash-o fa-lg"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+          <div class="buttons">
+            <div class="delete"></div>
+          </div>
+        </div>
+        <div class="clip">
+          <div class="clip-gray"></div>
+          <div class="gray-line"></div>
+        </div>
+        <div class="note"></div>
+      </div>
+      <div class="pencil">
+        <div class="top"></div>
+        <div class="bottom"></div>
+      </div>
+    </div>
+    <!-- partial -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
